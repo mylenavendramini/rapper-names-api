@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const PORT = 8000;
+const bodyParser = require("body-parser");
 
 app.use(cors());
+router.use(bodyParser.json());
 
 const rappers = {
   "21 savage": {
