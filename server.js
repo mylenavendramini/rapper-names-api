@@ -8,7 +8,7 @@ const rappers = {
     birthName: "Shéyaa Bin Abraham-Joseph",
     birtLocation: "London, England",
   },
-  "shance the rapper": {
+  "chance the rapper": {
     age: 29,
     birthName: "Chancelor Johnathan Bennett",
     birtLocation: "Chicago, Illinois",
@@ -33,6 +33,6 @@ app.get("/api/:rapperName", (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Server is running on the PORT ${PORT}!`);
 });
