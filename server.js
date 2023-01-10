@@ -1,12 +1,13 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
-app.use("/static", express.static("./static/"));
-const PORT = 8000;
 const bodyParser = require("body-parser");
+const PORT = 8000;
 
+const app = express();
+// router.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(cors());
-router.use(bodyParser.json());
+// app.use("/static", express.static("./static/"));
 
 const rappers = {
   "21 savage": {
@@ -26,6 +27,7 @@ const rappers = {
   },
 };
 
+app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
@@ -34,12 +36,12 @@ app.get("/api", (req, res) => {
   res.json(rappers);
 });
 
-app.get("/api/:rapperName", (req, res) => {
-  const rappersName = req.params.rapperName.toLowerCase();
+app.get("/api/:name", (req, res) => {
+  const rappersName = req.params.name.toLowerCase();
   if (rappers[rappersName]) {
     res.json(rappers[rappersName]);
   } else {
-    res.json(rappers["dylan"]);
+    res.json(rappers["unknown"]);
   }
 });
 

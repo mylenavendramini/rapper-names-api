@@ -6,6 +6,7 @@ async function apiRequest() {
     const response = await fetch(
       `https://rapper-names-api.netlify.app/api/${rapperName}`
     );
+
     const data = await response.json();
 
     console.log(data);
