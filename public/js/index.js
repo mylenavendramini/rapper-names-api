@@ -5,7 +5,7 @@ async function apiRequest() {
   const rapperName = document.querySelector("input").value;
   try {
     const response = await fetch(
-      `https://rapper-names-api.netlify.app/api/${rapperName}`
+      `https://https://rap-names-api-0y3b.onrender.com/api/${rapperName}`
     );
 
     const data = await response.json();
